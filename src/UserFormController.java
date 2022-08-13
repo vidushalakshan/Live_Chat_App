@@ -1,15 +1,15 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 
 public class UserFormController {
@@ -20,8 +20,10 @@ public class UserFormController {
     public TextArea vboxShowMassage;
     Socket accept = null;
 
-    public void btnSendOnAction(ActionEvent actionEvent) {
-
+    public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
+        PrintWriter printWriter = new PrintWriter(accept.getOutputStream());
+        printWriter.println(txtUserWriteMassage.getText());
+        printWriter.flush();
     }
 
     public void initialize(){
