@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="UserFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="695.0" prefWidth="476.0" style="-fx-background-color: #263238;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserFormController">
+   <children>
+      <TextField fx:id="txtUserWriteMassage" layoutX="19.0" layoutY="614.0" prefHeight="48.0" prefWidth="313.0" promptText="Write Massage here ....." />
+      <JFXButton layoutX="351.0" layoutY="614.0" onAction="#btnSendOnAction" prefHeight="48.0" prefWidth="103.0" style="-fx-background-color: blue;" text="Send" textFill="#e8e8e8">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <TextArea fx:id="vboxShowMassage" layoutX="21.0" layoutY="106.0" prefHeight="480.0" prefWidth="433.0" />
+      <Text fill="#eb21ff" layoutX="140.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+         <font>
+            <Font name="System Bold" size="39.0" />
+         </font>
+      </Text>
+   </children>
 </AnchorPane>
