@@ -13,23 +13,16 @@ import java.net.Socket;
 
 
 public class UserFormController {
-    @FXML
+
     public TextField txtUserWriteMassage;
 
-    @FXML
     public TextArea vboxShowMassage;
     Socket accept = null;
-
-    public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-        PrintWriter printWriter = new PrintWriter(accept.getOutputStream());
-        printWriter.println(txtUserWriteMassage.getText());
-        printWriter.flush();
-    }
 
     public void initialize(){
         new Thread(()->{
             try {
-                ServerSocket serverSocket = new ServerSocket(5000);
+                ServerSocket serverSocket = new ServerSocket(8000);
                 System.out.println("Server Started!");
                 accept = serverSocket.accept();
                 System.out.println("Client Connected!");
@@ -43,4 +36,11 @@ public class UserFormController {
             }
         }).start();
     }
+
+    public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
+        PrintWriter printWriter = new PrintWriter(accept.getOutputStream());
+        printWriter.println(txtUserWriteMassage.getText());
+        printWriter.flush();
+    }
+
 }
