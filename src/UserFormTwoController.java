@@ -1,3 +1,4 @@
+import com.sun.security.ntlm.Server;
 import javafx.event.ActionEvent;
 import javafx.geometry.NodeOrientation;
 import javafx.scene.control.TextArea;
@@ -42,10 +43,9 @@ public class UserFormTwoController {
     }
 
     public void btnSendOnActionTwo(ActionEvent actionEvent) throws IOException {
-            String msg = txtUserWriteMassageTwo.getText();
-            vboxShowMassageTwo.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-            vboxShowMassageTwo.appendText(String.valueOf(printWriter));
-            vboxShowMassageTwo.setText(UserFormController.userNameOneOn + " : " + msg);
-            vboxShowMassageTwo.setText("Me : " + txtUserWriteMassageTwo.getText());
+        String text = txtUserWriteMassageTwo.getText();
+        vboxShowMassageTwo.appendText("\tServer :" +text.trim() +"\n");
+        dataOutputStream.writeUTF(text);
+        txtUserWriteMassageTwo.setText("");
     }
 }

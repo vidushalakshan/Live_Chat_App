@@ -9,7 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 
-public class UserFormController {
+public class ServerFormController {
 
     public TextField txtUserWriteMassage;
 
@@ -20,6 +20,7 @@ public class UserFormController {
     DataOutputStream dos;
     String messageIn = "";
     static DataInputStream dataInputStream;
+    static DataOutputStream dataOutputStream;
 
     PrintWriter printWriter;
 
@@ -47,10 +48,9 @@ public class UserFormController {
     }
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-            String msg = txtUserWriteMassage.getText();
-            vboxShowMassage.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-            vboxShowMassage.appendText(String.valueOf(printWriter));
-            vboxShowMassage.setText(UserFormController.userNameOneOn + " : " + msg);
-            vboxShowMassage.setText("Me : " + txtUserWriteMassage.getText());
+        String text = txtUserWriteMassage.getText();
+        vboxShowMassage.appendText("\tServer :" +text.trim()+"\n");
+        dataOutputStream.writeUTF(text);
+        txtUserWriteMassage.setText("");
     }
 }
