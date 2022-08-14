@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane fx:id="root" prefHeight="695.0" prefWidth="476.0" style="-fx-background-color: #263238;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserFormTwoController">
    <children>
       <TextField fx:id="txtUserWriteMassageTwo" layoutX="22.0" layoutY="608.0" prefHeight="48.0" prefWidth="313.0" promptText="Write Massage here ....." />
@@ -17,7 +16,7 @@
          </font>
       </JFXButton>
       <TextArea fx:id="vboxShowMassageTwo" layoutX="22.0" layoutY="101.0" prefHeight="480.0" prefWidth="433.0" />
-      <Text fill="#eb21ff" layoutX="137.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+      <Text fx:id="userName" fill="#eb21ff" layoutX="137.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
          <font>
             <Font name="System Bold" size="39.0" />
          </font>

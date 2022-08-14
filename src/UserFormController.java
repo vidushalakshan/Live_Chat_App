@@ -1,15 +1,12 @@
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+import javafx.geometry.NodeOrientation;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-
 
 
 public class UserFormController {
@@ -17,12 +14,21 @@ public class UserFormController {
     public TextField txtUserWriteMassage;
 
     public TextArea vboxShowMassage;
+    public Text userNameOne;
     Socket accept = null;
+    public static String userNameOneOn;
+    DataOutputStream dos;
+    String messageIn = "";
+    static DataInputStream dataInputStream;
 
-    public void initialize(){
-        new Thread(()->{
+    PrintWriter printWriter;
+
+    BufferedReader reader;
+
+    public void initialize() {
+        new Thread(() -> {
             try {
-                ServerSocket serverSocket = new ServerSocket(8000);
+                ServerSocket serverSocket = new ServerSocket(6000);
                 System.out.println("Server Started!");
                 accept = serverSocket.accept();
                 System.out.println("Client Connected!");
@@ -30,17 +36,21 @@ public class UserFormController {
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 String record = bufferedReader.readLine();
                 System.out.println(record);
-
-            } catch (Exception e){
+                while (!messageIn.equals("end")) {
+                    messageIn = dataInputStream.readUTF();
+                    txtUserWriteMassage.appendText("\nServer: " + messageIn.trim() + "\n");
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }).start();
     }
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-        PrintWriter printWriter = new PrintWriter(accept.getOutputStream());
-        printWriter.println(txtUserWriteMassage.getText());
-        printWriter.flush();
+            String msg = txtUserWriteMassage.getText();
+            vboxShowMassage.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+            vboxShowMassage.appendText(String.valueOf(printWriter));
+            vboxShowMassage.setText(UserFormController.userNameOneOn + " : " + msg);
+            vboxShowMassage.setText("Me : " + txtUserWriteMassage.getText());
     }
-
 }
