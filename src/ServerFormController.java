@@ -1,5 +1,4 @@
 import javafx.event.ActionEvent;
-import javafx.geometry.NodeOrientation;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -27,30 +26,31 @@ public class ServerFormController {
     BufferedReader reader;
 
     public void initialize() {
-        new Thread(() -> {
-            try {
-                ServerSocket serverSocket = new ServerSocket(6000);
-                System.out.println("Server Started!");
-                accept = serverSocket.accept();
-                System.out.println("Client Connected!");
-                InputStreamReader inputStreamReader = new InputStreamReader(accept.getInputStream());
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String record = bufferedReader.readLine();
-                System.out.println(record);
-                while (!messageIn.equals("end")) {
-                    messageIn = dataInputStream.readUTF();
-                    txtUserWriteMassage.appendText("\nServer: " + messageIn.trim() + "\n");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    ServerSocket serverSocket = new ServerSocket(1000);
+                    System.out.println("Server Started!");
+                    accept = serverSocket.accept();
+                    System.out.println("Client Connected!");
+                    dataInputStream = new DataInputStream(accept.getInputStream());
+                    dataOutputStream = new DataOutputStream(accept.getOutputStream());
+
+                    while (!messageIn.equals("end")) {
+                        messageIn = dataInputStream.readUTF();
+                        vboxShowMassage.appendText("\nClient2: " + messageIn.trim() + "\n");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }).start();
     }
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-        String text = txtUserWriteMassage.getText();
-        vboxShowMassage.appendText("\tServer :" +text.trim()+"\n");
-        dataOutputStream.writeUTF(text);
-        txtUserWriteMassage.setText("");
+        dataOutputStream.writeUTF(txtUserWriteMassage.getText().trim());
+        vboxShowMassage.appendText("\nMe :" +txtUserWriteMassage.getText().trim()+"\n");
+        txtUserWriteMassage.clear();
     }
 }
