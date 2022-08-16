@@ -31,7 +31,7 @@ public class UserFormTwoController {
             @Override
             public void run() {
                 try {
-                    socket = new Socket("localhost",13000);
+                    socket = new Socket("localhost",17000);
                     dataInputStream = new DataInputStream(socket.getInputStream());
                     dataOutputStream=new DataOutputStream(socket.getOutputStream());
                     while (!messageIn.equals("end")) {

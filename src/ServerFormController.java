@@ -34,7 +34,7 @@ public class ServerFormController {
             @Override
             public void run() {
                 try {
-                    ServerSocket serverSocket = new ServerSocket(13000);
+                    ServerSocket serverSocket = new ServerSocket(17000);
                     System.out.println("Server Started!");
                     accept = serverSocket.accept();
                     System.out.println("Client Connected!");

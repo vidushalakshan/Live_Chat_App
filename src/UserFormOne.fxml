@@ -18,7 +18,7 @@
          </font>
       </JFXButton>
       <TextArea fx:id="vboxShowMassageTwo" layoutX="22.0" layoutY="101.0" prefHeight="480.0" prefWidth="433.0" />
-      <Text fx:id="userName" fill="#eb21ff" layoutX="137.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+      <Text fx:id="userName" fill="#eb21ff" layoutX="168.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client 2">
          <font>
             <Font name="System Bold" size="39.0" />
          </font>

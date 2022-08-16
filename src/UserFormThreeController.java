@@ -27,7 +27,7 @@ public class UserFormThreeController {
             @Override
             public void run() {
                 try {
-                    three = new Socket("localhost",13000);
+                    three = new Socket("localhost",17000);
                     dataInputStream = new DataInputStream(three.getInputStream());
                     dataOutputStream=new DataOutputStream(three.getOutputStream());
                     while (!messageIn.equals("end")) {
