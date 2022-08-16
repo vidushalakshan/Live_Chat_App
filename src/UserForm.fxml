@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -21,5 +24,13 @@
             <Font name="System Bold" size="39.0" />
          </font>
       </Text>
+      <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="278.0" layoutY="618.0" onMouseClicked="#ImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assests/image/camara.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

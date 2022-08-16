@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="695.0" prefWidth="476.0" style="-fx-background-color: #263238;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ServerFormController">
    <children>
-      <TextField fx:id="txtUserWriteMassage" layoutX="19.0" layoutY="614.0" prefHeight="48.0" prefWidth="313.0" promptText="Write Massage here ....." />
+      <TextField fx:id="txtUserWriteMassage" layoutX="19.0" layoutY="614.0" prefHeight="48.0" prefWidth="262.0" promptText="Write Massage here ....." />
       <JFXButton layoutX="351.0" layoutY="614.0" onAction="#btnSendOnAction" prefHeight="48.0" prefWidth="103.0" style="-fx-background-color: blue;" text="Send" textFill="#e8e8e8">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -21,5 +24,13 @@
             <Font name="System Bold" size="39.0" />
          </font>
       </Text>
+      <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="289.0" layoutY="618.0" onMouseClicked="#ImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assests/image/camara.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

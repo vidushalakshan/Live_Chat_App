@@ -14,7 +14,7 @@ public class UserFormTwoInitializer extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setScene
-                (new Scene(FXMLLoader.load(getClass().getResource("UserFormOne.fxml"))));
+                (new Scene(FXMLLoader.load(getClass().getResource("LoginForm.fxml"))));
         primaryStage.show();
     }
 }

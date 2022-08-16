@@ -18,14 +18,37 @@ public class LoginFormController {
 
     public void btnLogInOnAction(ActionEvent actionEvent) throws IOException {
         userName= txtUserName.getText();
-        if (userName==userName){
-            Parent parent= FXMLLoader.load(this.getClass().getResource("UserForm.fxml"));
+        if (txtUserName.getText().equals("Client1")){
+            /*Parent parent= FXMLLoader.load(this.getClass().getResource("UserFormOne.fxml"));
             Scene scene=new Scene(parent);
 
             Stage primaryStage=(Stage)this.root.getScene().getWindow();
 
             primaryStage.setScene(scene);
-            primaryStage.centerOnScreen();
+            primaryStage.centerOnScreen();*/
+
+            Parent load = FXMLLoader.load(getClass().getResource("UserFormOne.fxml"));
+            Scene scene = new Scene(load);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+
+        }else if (txtUserName.getText().equals("Client2")){
+            /*Parent parent= FXMLLoader.load(this.getClass().getResource("UserFormTwo.fxml"));
+            Scene scene=new Scene(parent);
+
+            Stage primaryStage=(Stage)this.root.getScene().getWindow();
+
+            primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();*/
+
+            Parent load = FXMLLoader.load(getClass().getResource("UserFormThree.fxml"));
+            Scene scene = new Scene(load);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+
+
         }
 
     }
