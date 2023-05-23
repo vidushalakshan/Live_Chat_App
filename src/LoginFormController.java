@@ -18,7 +18,7 @@ public class LoginFormController {
 
     public void btnLogInOnAction(ActionEvent actionEvent) throws IOException {
         userName= txtUserName.getText();
-        if (txtUserName.getText().equals("Client1")){
+        if (txtUserName.getText().equals("Client")){
             /*Parent parent= FXMLLoader.load(this.getClass().getResource("UserFormOne.fxml"));
             Scene scene=new Scene(parent);
 
@@ -33,7 +33,7 @@ public class LoginFormController {
             stage.setScene(scene);
             stage.show();
 
-        }else if (txtUserName.getText().equals("Client2")){
+        }else if (txtUserName.getText().equals("Client1")){
             /*Parent parent= FXMLLoader.load(this.getClass().getResource("UserFormTwo.fxml"));
             Scene scene=new Scene(parent);
 
